@@ -15,10 +15,10 @@ int servovLimitLow = 15;
 
 // Unde pe placa Arduino sunt amplasate rezistorii de lumina
 
-int ldrlt = 3;
-int ldrrt = 0;
-int ldrld = 2;
-int ldrrd = 1;
+int ldrlt = 2;
+int ldrrt = 1;
+int ldrld = 3;
+int ldrrd = 0;
 
 void setup()
 {
