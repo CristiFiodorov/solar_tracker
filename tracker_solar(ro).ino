@@ -10,7 +10,7 @@ int servohLimitLow = 10;
 Servo vertical; // vertical servo
 int servov = 90;
 
-int servovLimitHigh = 120;
+int servovLimitHigh = 125;
 int servovLimitLow = 15;
 
 // Unde pe placa Arduino sunt amplasate rezistorii de lumina
@@ -40,7 +40,7 @@ void loop()
   int rd = analogRead(ldrrd);
 
   int dtime = 10;
-  int tol = 50;
+  int tol = 30;
 
   int avt = (lt + rt) / 2; // calculeaza valoarea medie de sus
   int avd = (ld + rd) / 2; // calculeaza valoarea medie de jos
@@ -65,7 +65,7 @@ void loop()
 
   if (-1 * tol > dvert || dvert > tol) // verifica daca diferenta se afla in toleranta
   {
-    if (avt > avd) // verifica daca este vreo diferenta dintre partea de sus si partea de jos ,daca este pai se schimba unghiul in partea necesara
+    if (avd > avt) // verifica daca este vreo diferenta dintre partea de sus si partea de jos ,daca este pai se schimba unghiul in partea necesara
     {
       servov = ++servov;
       if (servov > servovLimitHigh)
@@ -73,7 +73,7 @@ void loop()
         servov = servovLimitHigh;
       }
     }
-    else if (avt < avd)
+    else if (avd < avt)
     {
       servov = --servov;
       if (servov < servovLimitLow)
